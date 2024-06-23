@@ -1,0 +1,28 @@
+{
+  "name": "@pkgroll-issue/workspace",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "reinstall": "pnpm clean:modules && pnpm install",
+    "clean": "pnpm --stream -r clean",
+    "clean:modules": "node ./.scripts/clean-modules.mjs",
+    "lint": "biome lint --write .",
+    "fmt": "biome format . --write",
+    "build": "pnpm \"--filter=./packages/*\" --stream -r build",
+    "build:core": "pnpm --filter=core build",
+    "build:vue": "pnpm --filter=vue build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.2",
+    "@types/node": "20.14.8",
+    "pkgroll": "^2.1.1",
+    "typescript": "^5.5.2"
+  },
+  "engines": {
+    "node": ">=21.7.2",
+    "pnpm": ">=9.4.0"
+  },
+  "packageManager": "pnpm@9.4.0"
+}

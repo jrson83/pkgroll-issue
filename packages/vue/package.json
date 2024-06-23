@@ -1,0 +1,39 @@
+{
+  "name": "@pkgroll-issue/vue",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    "require": {
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
+    },
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "pkgroll --clean-dist --target=es2020 --minify"
+  },
+  "dependencies": {
+    "@pkgroll-issue/core": "workspace:*",
+    "vue": "^3.4.30"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.8"
+  },
+  "peerDependencies": {
+    "vue": ">=3.4.30"
+  },
+  "engines": {
+    "node": ">=18.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
